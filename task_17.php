@@ -1,3 +1,10 @@
+<?php
+$db = new PDO("mysql:host=localhost:8889;dbname=task_17", 'root', 'root');
+$sql = "select id,path from images";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +44,10 @@
                             <div class="panel-content">
                                 <div class="panel-content">
                                     <div class="form-group">
-                                        <form action="">
+                                        <form action="load.php" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label class="form-label" for="simpleinput">Image</label>
-                                            <input type="file" id="simpleinput" class="form-control">
+                                            <input type="file" name="images[]" multiple id="simpleinput" class="form-control">
                                             </div>
                                             <button class="btn btn-success mt-3">Submit</button>
                                         </form>
@@ -66,17 +73,12 @@
                             <div class="panel-content">
                                 <div class="panel-content image-gallery">
                                     <div class="row">
+                                        <?php if ($results) foreach ($results as $image): ?>
                                         <div class="col-md-3 image">
-                                            <img src="img/demo/gallery/1.jpg">
+                                            <img src="<?php echo $image["path"]; ?>">
+                                            <a class="btn btn-danger" onclick="confirm('Вы уверены?');" href="/delete.php?id=<?php echo $image["id"]; ?>&path=<?php echo $image["path"]; ?>">Удалить</a>
                                         </div>
-
-                                        <div class="col-md-3 image">
-                                            <img src="img/demo/gallery/2.jpg">
-                                        </div>
-
-                                        <div class="col-md-3 image">
-                                            <img src="img/demo/gallery/3.jpg">
-                                        </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>

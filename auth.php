@@ -24,8 +24,8 @@ if (!empty($_POST["email"]) and !empty($_POST["password"]))
         $stmt = $db->prepare($sql_ins);
         $stmt->execute(["email" => $user_email, "password" => password_hash($user_pwd, PASSWORD_DEFAULT)]);
 
-        $_SESSION["error"] = "Вы успешно зарегистрировались";
-        header("Location: localhost:8888/1_stage/user_page.php");
+        $_SESSION["error"] = "Вы успешно зарегистрировались.";
+        header("Location: /1_stage/user_page.php");
         exit();
     } else
     {
@@ -33,18 +33,20 @@ if (!empty($_POST["email"]) and !empty($_POST["password"]))
         {
             $_SESSION["error"] = "Добро пожаловать в личный кабинет";
             var_dump($_SESSION["error"]);
-            header("Location: localhost:8888/1_stage/user_page.php");
+            header("Location: /1_stage/user_page.php");
             exit();
         } else
         {
             $_SESSION["error"] = "Вы ввели неправильный пароль";
-            header("Location: localhost:8888/1_stage/auth_form.php");
+            header("Location: /1_stage/task_15.php");
             exit();
         }
     }
 } else
 {
     $_SESSION["error"] = "Вы не ввели логин или пароль";
-    header("Location: localhost:8888/1_stage/auth_form.php");
+    header("Location: /1_stage/task_15.php");
     exit();
 }
+
+?>

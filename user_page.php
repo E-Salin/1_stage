@@ -46,17 +46,8 @@ session_start();
                                 </div>
                             <?php endif;?>
 
-                            <form action="" method="post">
-
-                                <?php echo $_SESSION["error"]; ?>
-                                <!--<div class="form-group">
-                                    <label class="form-label" for="simpleinput">Email</label>
-                                    <input type="text" name="email" id="simpleinput" class="form-control">
-                                </div>
-
-                                <label class="form-label" for="simpleinput">Password</label>
-                                <input type="password" name="password" id="simpleinput" class="form-control">
-                                <button class="btn btn-success mt-3">Submit</button>-->
+                            <form action="break_session.php">
+                                <button class="btn btn-success mt-3">Выйти</button>
                             </form>
                         </div>
                     </div>
