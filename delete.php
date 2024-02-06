@@ -8,7 +8,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute(["id" => $id]);
 
 unlink($path);
-
 header("Location: /1_stage/task_17.php");
+
 
 
