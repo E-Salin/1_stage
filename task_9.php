@@ -52,11 +52,6 @@
                 ]
 
             ];
-
-            array_push($links, "test");
-            echo "<pre>";
-            var_dump($links);
-            echo "</pre>";
             ?>
 
             <div class="panel-container show">

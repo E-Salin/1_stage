@@ -45,7 +45,6 @@
                                $stmt = $db->query($query);
                                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                foreach ($results as $employee):
-                                   print_r($employee)
                                ?>
 
                             <div class="<?php if ($employee["banned"]) echo "banned";?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
