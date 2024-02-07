@@ -38,12 +38,13 @@
                             </div> -->
                             <?php
                             $dir = "/img/demo/gallery/";
+                            $dir_thumb = "img/demo/gallery/thumb/";
                             $images = scandir($_SERVER['DOCUMENT_ROOT'].$dir);
                             ?>
                             <div id="js-lightgallery">
                                 <?php foreach ($images as $image): ?>
-                                    <a class="" href="img/demo/gallery/<?php echo $image ?>">
-                                        <img class="img-responsive" src="img/demo/gallery/thumb/<?php echo $image ?>" alt="<?php echo $image ?>">
+                                    <a class="" href="<?php echo $dir, $image ?>">
+                                        <img class="img-responsive" src="<?php echo $dir_thumb, $image ?>" alt="<?php echo $image ?>">
                                     </a>
                                 <?php endforeach; ?>
                             </div>
